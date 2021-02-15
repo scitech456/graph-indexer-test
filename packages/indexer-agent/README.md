@@ -1,10 +1,12 @@
-# Indexer Agent
+# README
 
-## Usage
+## Indexer Agent
 
-### `graph-indexer-agent start`
+### Usage
 
-```
+#### `graph-indexer-agent start`
+
+```text
 Start the agent
 
 Ethereum
@@ -64,8 +66,9 @@ Options:
   --help     Show help                                                 [boolean]
 ```
 
-# Copyright
+## Copyright
 
-Copyright &copy; 2020 The Graph Foundation
+Copyright © 2020 The Graph Foundation
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [MIT license](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/packages/indexer-agent/LICENSE/README.md).
+

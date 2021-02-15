@@ -1,20 +1,21 @@
-# Graph Protocol Indexer CLI
+# README
 
-## Installation
+## Graph Protocol Indexer CLI
 
-The indexer CLI in this repository is an extension for [graph-cli](https://github.com/graphprotocol/graph-cli).
-As such they are best installed together.
+### Installation
 
-```sh
+The indexer CLI in this repository is an extension for [graph-cli](https://github.com/graphprotocol/graph-cli). As such they are best installed together.
+
+```bash
 npm install -g @graphprotocol/graph-cli
 npm install -g @graphprotocol/indexer-cli
 ```
 
-## Usage
+### Usage
 
 Getting help:
 
-```sh
+```bash
 $ graph indexer --help
 
 Manage indexer configuration
@@ -38,13 +39,13 @@ Manage indexer configuration
 
 Connecting to an indexer management API:
 
-```sh
+```bash
 $ graph indexer connect http://url.of.indexer-agent:8000/
 ```
 
 Querying indexing rules:
 
-```sh
+```bash
 $ graph indexer rules get all
 ╔════════════════════════════════════════════════════════════════════╤══════════════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment                                                         │ allocation           │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -57,7 +58,7 @@ $ graph indexer rules get all
 
 Start subgraph deployments:
 
-```sh
+```bash
 $ graph indexer rules start 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd44dc2454db4bf3
 ╔════════════════════════════════════════════════════════════════════╤════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment                                                         │ allocation │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -68,7 +69,7 @@ $ graph indexer rules start 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd
 
 Stopping subgraph deployments:
 
-```sh
+```bash
 $ graph indexer rules stop 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd44dc2454db4bf3
 ╔════════════════════════════════════════════════════════════════════╤════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment                                                         │ allocation │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -79,7 +80,7 @@ $ graph indexer rules stop 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd4
 
 Tweak global indexing rules:
 
-```sh
+```bash
 $ graph indexer rules set global minSignal 10000 minAverageQueryFees 50
 ╔════════════╤══════════════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment │ allocation           │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -90,7 +91,7 @@ $ graph indexer rules set global minSignal 10000 minAverageQueryFees 50
 
 Tweak deployment specific indexing rules:
 
-```sh
+```bash
 $ graph indexer rules set 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd44dc2454db4bf3 decisionBasis rules minStake 999
 ╔════════════════════════════════════════════════════════════════════╤════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment                                                         │ allocation │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -101,7 +102,7 @@ $ graph indexer rules set 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd44
 
 Clear indexing rules:
 
-```sh
+```bash
 $ graph indexer rules clear 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd44dc2454db4bf3 minStake
 ╔════════════════════════════════════════════════════════════════════╤════════════╤═════════════════════════╤═══════════╤═══════════╤══════════╤═════════════════════╤════════╤═══════════════╗
 ║ deployment                                                         │ allocation │ maxAllocationPercentage │ minSignal │ maxSignal │ minStake │ minAverageQueryFees │ custom │ decisionBasis ║
@@ -110,8 +111,9 @@ $ graph indexer rules clear 0xa4e311bfa7edabed7b31d93e0b3e751659669852ef46adbedd
 ╚════════════════════════════════════════════════════════════════════╧════════════╧═════════════════════════╧═══════════╧═══════════╧══════════╧═════════════════════╧════════╧═══════════════╝
 ```
 
-# Copyright
+## Copyright
 
-Copyright &copy; 2020 The Graph Foundation
+Copyright © 2020 The Graph Foundation
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [MIT license](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/packages/indexer-cli/LICENSE/README.md).
+

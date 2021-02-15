@@ -1,10 +1,12 @@
-# Common Indexer Library for The Graph Network
+# README
 
-This library includes code that is shared between the different indexer packages
-in this repository.
+## Common Indexer Library for The Graph Network
 
-# Copyright
+This library includes code that is shared between the different indexer packages in this repository.
 
-Copyright &copy; 2020 The Graph Foundation
+## Copyright
 
-Licensed under the [MIT license](LICENSE).
+Copyright © 2020 The Graph Foundation
+
+Licensed under the [MIT license](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/packages/indexer-common/LICENSE/README.md).
+

@@ -1,21 +1,20 @@
-# Graph Protocol Indexer Components
+# README
 
-![CI](https://github.com/graphprotocol/indexer/workflows/CI/badge.svg)
-[![Docker Image: Indexer Service](https://github.com/graphprotocol/indexer/workflows/Indexer%20Service%20Image/badge.svg)](https://github.com/orgs/graphprotocol/packages/container/package/indexer-service)
-[![Docker Image: Indexer Agent](https://github.com/graphprotocol/indexer/workflows/Indexer%20Agent%20Image/badge.svg)](https://github.com/orgs/graphprotocol/packages/container/package/indexer-agent)
+## Graph Protocol Indexer Components
+
+![CI](https://github.com/graphprotocol/indexer/workflows/CI/badge.svg) [![Docker Image: Indexer Service](https://github.com/graphprotocol/indexer/workflows/Indexer%20Service%20Image/badge.svg)](https://github.com/orgs/graphprotocol/packages/container/package/indexer-service) [![Docker Image: Indexer Agent](https://github.com/graphprotocol/indexer/workflows/Indexer%20Agent%20Image/badge.svg)](https://github.com/orgs/graphprotocol/packages/container/package/indexer-agent)
 
 **NOTE: THIS PROJECT IS BETA SOFTWARE.**
 
-## The Graph Network vs. Testnet
+### The Graph Network vs. Testnet
 
-For configuration details for The Graph Network and the testnet, see the
-[Mainnet and Testnet Configuration docs](./docs/networks.md).
+For configuration details for The Graph Network and the testnet, see the [Mainnet and Testnet Configuration docs](docs/networks.md).
 
-## Running from NPM packages
+### Running from NPM packages
 
 The indexer service, agent and CLI can be installed as NPM packages, using
 
-```sh
+```bash
 npm install -g @graphprotocol/indexer-service
 npm install -g @graphprotocol/indexer-agent
 
@@ -26,7 +25,7 @@ npm install -g @graphprotocol/indexer-cli
 
 After that, they can be run with the following commands:
 
-```sh
+```bash
 # Indexer service
 graph-indexer-service start ...
 
@@ -37,11 +36,11 @@ graph-indexer-agent start ...
 graph indexer ...
 ```
 
-## Usage
+### Usage
 
-### Indexer service
+#### Indexer service
 
-```sh
+```bash
 $ graph-indexer-service start --help
 
 Start the service
@@ -90,9 +89,9 @@ Options:
                                                                          [array]
 ```
 
-### Indexer agent
+#### Indexer agent
 
-```sh
+```bash
 $ graph-indexer-agent start --help
 
 Start the agent
@@ -159,12 +158,11 @@ Options:
                 [string] [default: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
 ```
 
-### Indexer CLI
+#### Indexer CLI
 
-Since indexer CLI is a plugin for `@graphprotocol/graph-cli`, it is invoked
-simply by running `graph indexer`.
+Since indexer CLI is a plugin for `@graphprotocol/graph-cli`, it is invoked simply by running `graph indexer`.
 
-```sh
+```bash
 $ graph --help
 
   ...
@@ -185,18 +183,17 @@ $ graph --help
   indexer                        Manage indexer configuration
 ```
 
-## Running from source
+### Running from source
 
-Run the following at the root of this repository to install dependencies and
-build the packages:
+Run the following at the root of this repository to install dependencies and build the packages:
 
-```sh
+```bash
 yarn
 ```
 
 After this, the indexer service and agent can be run with:
 
-```sh
+```bash
 # Indexer service
 cd packages/indexer-service
 ./bin/graph-indexer-service start ...
@@ -206,19 +203,18 @@ cd packages/indexer-service
 ./bin/graph-indexer-service start ...
 ```
 
-## Docker images
+### Docker images
 
-The easiest way to run the indexer service agent is by using Docker. Docker
-images can either be pulled via
+The easiest way to run the indexer service agent is by using Docker. Docker images can either be pulled via
 
-```sh
+```bash
 docker pull ghcr.io/graphprotocol/indexer-service:latest
 docker pull ghcr.io/graphprotocol/indexer-agent:latest
 ```
 
 or built locally with
 
-```sh
+```bash
 # Indexer service
 docker build \
   --build-arg NPM_TOKEN=<npm-token> \
@@ -238,53 +234,44 @@ After this, the indexer agent and service can be run as follows:
 
 1. Indexer service:
 
-   ```sh
+   ```bash
    docker run -p 7600:7600 -it indexer-service:latest ...
    ```
 
-   After this, the indexer service should be up and running at
-   http://localhost:7600/.
+   After this, the indexer service should be up and running at [http://localhost:7600/](http://localhost:7600/).
 
 2. Indexer Agent
 
-   ````sh
+   ```bash
    docker run -p 18000:8000 -it indexer-agent:latest ...
    ```
 
    This starts the indexer agent and serves the so-called indexer management API
    on the host at port 18000.
+   ```
 
-   ````
+### Terraform & Kubernetes
 
-## Terraform & Kubernetes
+The [terraform/](terraform.md) and [k8s/](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/k8s/README.md) directories provide a complete example setup for running an indexer on the Google Cloud Kubernetes Engine \(GKE\). This setup was also used as the reference setup in the Mission Control testnet and can be a good starting point for those looking to run the indexer in a virtualized environment.
 
-The [terraform/](./terraform/) and [k8s/](./k8s) directories provide a
-complete example setup for running an indexer on the Google Cloud Kubernetes
-Engine (GKE). This setup was also used as the reference setup in the Mission
-Control testnet and can be a good starting point for those looking to run the
-indexer in a virtualized environment.
+Check out the [terraform README](terraform.md) for details on how to get started.
 
-Check out the [terraform README](./terraform/README.md) for details on how to
-get started.
+### Releasing
 
-## Releasing
+This repository is managed using [Lerna](https://lerna.js.org/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
 
-This repository is managed using [Lerna](https://lerna.js.org/) and [Yarn
-workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
+[chan](https://github.com/geut/chan/tree/master/packages/chan) is used to maintain the following changelogs:
 
-[chan](https://github.com/geut/chan/tree/master/packages/chan) is
-used to maintain the following changelogs:
-
-- [indexer-service](packages/indexer-service/CHANGELOG.md)
-- [indexer-agent](packages/indexer-agent/CHANGELOG.md)
-- [indexer-cli](packages/indexer-cli/CHANGELOG.md)
-- [indexer-common](packages/indexer-common/CHANGELOG.md)
+* [indexer-service](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/packages/indexer-service/CHANGELOG.md)
+* [indexer-agent](packages/indexer-agent/changelog.md)
+* [indexer-cli](packages/indexer-cli/changelog.md)
+* [indexer-common](packages/indexer-common/changelog.md)
 
 Creating a new release involves the following steps:
 
 1. Update all changelogs:
 
-   ```sh
+   ```bash
    pushd packages/indexer-service
    chan added ...
    chan fixed ...
@@ -302,18 +289,17 @@ Creating a new release involves the following steps:
    pushd packages/indexer-common
    ...
    popd
-
    ```
 
-2. Publish the release. This includes committing the changelogs, tagging the
-   new version and publishing packages on npmjs.com.
+2. Publish the release. This includes committing the changelogs, tagging the new version and publishing packages on npmjs.com.
 
-   ```sh
+   ```bash
    yarn release <version>
    ```
 
-# Copyright
+## Copyright
 
-Copyright &copy; 2020-2021 The Graph Foundation
+Copyright © 2020-2021 The Graph Foundation
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [MIT license](https://github.com/scitech456/graph-indexer-test/tree/037096a671b1e10787b8545ffe2b6d60c3b0b5c1/LICENSE/README.md).
+
