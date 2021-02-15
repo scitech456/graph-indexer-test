@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-node
+spec:
+  # Set this to the number of VM's in the query_pool node pool
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: graph-node
+          resources:
+            requests:
+              # Set this to a little more than half the number of CPUs
+              # that one VM in the node pool has
+              cpu: 600m
+          env:
+            # Set this to your Ethereum node
+            - name: ethereum
+              value: mainnet:https://eth-mainnet.node/
